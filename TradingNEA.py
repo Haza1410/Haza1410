@@ -18,11 +18,11 @@ stocks = pd.read_csv("sp_500_stocks.csv")
 #Imports the list of stocks and our API token (a unique identifier of an application requesting access to a service) into a panda's data frame caled stocks; a csv file.
 
 symbol = "aapl"
-api_url = f"https://sandbox.iexapis.com/stable/stock/{symbol}/quote/"
+api_url = f"https://sandbox.iexapis.com/stable/stock/{symbol}/quote?token={IEX_CLOUD_API_TOKEN}"
 #This takes data from IEX website to star building a value screener that ranks stocks based on the price to earnings ratio of a company (current stock price divded by estimated yearly earnings estimate)
 #Add "stable" to the web address to ensure the website is fully tested and it uses no beta features.
 #Turn the string into an "f" string to ensure the "symbol" becomes interpolated
-data = requests.get(api_url)
+data = requests.get(api_url).json()
 #This creates an API call using th rerequests library
 print(data.status_code)
 #This is a stats code which tells you if your HTTP request was successful. A successful request will return a value of 200, an erroneous request will return a result between 400 -500
