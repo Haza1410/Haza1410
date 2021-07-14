@@ -25,4 +25,4 @@ api_url = f"https://sandbox.iexapis.com/stable/stock/{symbol}/quote?token={IEX_C
 data = requests.get(api_url).json()
 #This creates an API call using th rerequests library
 print(data.status_code)
-#This is a stats code which tells you if your HTTP request was successful. A successful request will return a value of 200, an erroneous request will return a result between 400 -500
+#This is a stats cod which tells you if your HTTP request was successful. A successful request will return a value of 200, an erroneous request will return a result between 400 -500
